@@ -1,23 +1,27 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Created by nazan on 6/12/2017.
  */
 public class readSpread {
-    public static  void main(String[] args){
+    public static  void main(String[] args)throws Exception{
         String csvFile = "C:/Users/nazan/Desktop/webhoseToJson/csvTest.csv";
+        FileWriter fw = new FileWriter("C:/Users/nazan/Desktop/webhoseToJson/csvTest1.csv");
+        fw.append("article_url");
         BufferedReader br = null;
         String line = "";
+
 
         try {
             br = new BufferedReader(new FileReader(csvFile));
             while ((line = br.readLine()) != null){
                 String[] line2 = line.split(",");
-                System.out.println(line2[0]);
+                fw.append(line2[0]);
+                fw.append("\n");
+                //This is test.
+                //System.out.println(line2[0]);
             }
+            fw.close();
 
         }catch (FileNotFoundException e){
             System.out.println(e);
