@@ -5,8 +5,8 @@ import java.io.*;
  */
 public class readSpread {
     public static  void main(String[] args)throws Exception{
-        String csvFile = "C:/Users/nazan/Desktop/webhoseToJson/csvTest.csv";
-        FileWriter fw = new FileWriter("C:/Users/nazan/Desktop/webhoseToJson/csvTest1.csv");
+        String csvFile = "C:/Users/nazan/Desktop/webhoseToJson/Test.csv";
+        FileWriter fw = new FileWriter("C:/Users/nazan/Desktop/webhoseToJson/Test1.csv");
         fw.append("article_url");
         BufferedReader br = null;
         String line = "";
@@ -15,11 +15,11 @@ public class readSpread {
         try {
             br = new BufferedReader(new FileReader(csvFile));
             while ((line = br.readLine()) != null){
-                String[] line2 = line.split(",");
+                String[] line2 = line.trim().split(",");
                 fw.append(line2[0]);
                 fw.append("\n");
                 //This is test.
-                //System.out.println(line2[0]);
+                System.out.println(line2[3]);
             }
             fw.close();
 
