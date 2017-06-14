@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.List;
 
 /**
  * Created by nazan on 6/12/2017.
@@ -10,16 +11,20 @@ public class readSpread {
         fw.append("article_url");
         BufferedReader br = null;
         String line = "";
+        String[] line2;
 
 
         try {
             br = new BufferedReader(new FileReader(csvFile));
+            //br.readLine();
             while ((line = br.readLine()) != null){
-                String[] line2 = line.trim().split(",");
+                line2 = line.trim().split(",");
+                System.out.println(line2[0] + line2[1] + line2[2] + line2[3]);
+
                 fw.append(line2[0]);
                 fw.append("\n");
                 //This is test.
-                System.out.println(line2[3]);
+
             }
             fw.close();
 
